@@ -28,16 +28,16 @@ final class ConvertorTest extends TestCase
         $this->assertCount(3, $videos[1986]);
     }
 
+    /**
+     * @test
+     */
     public function can_identify_different_player_types(): void
     {
+        $convertor = new Convertor($this->rootDir, 'videos-with-different-player-types.csv');
+        $videos = $convertor->fromCsvToArray();
 
-    }
-
-    public function differentPlayerTypesDataProvider(): array
-    {
-        return [
-            ['https://www.youtube.com/embed/68s7VOswctU', 'youtube'],
-            ['https://player.vimeo.com/video/328594418', 'vimeo'],
-        ];
+        $this->assertCount(2, $videos);
+        $this->assertSame('youtube', $videos[2019][0]['player_type']);
+        $this->assertSame('vimeo', $videos[1986][0]['player_type']);
     }
 }

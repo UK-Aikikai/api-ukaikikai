@@ -51,11 +51,25 @@ final class Convertor
             $videoCollection[$videoConversion[0]][] = [
                 'title' => $videoConversion[1],
                 'description' => $videoConversion[2],
-                'player' => $videoConversion[3]
+                'player' => $videoConversion[3],
+                'player_type' => $this->getPlayerType($videoConversion[3]),
             ];
         }
 
         return $videoCollection;
+    }
+
+    private function getPlayerType(string $player): string
+    {
+        if (strpos($player, 'https://www.youtube.com') === 0) {
+            return 'youtube';
+        }
+
+        if (strpos($player, 'https://player.vimeo.com') === 0) {
+            return 'vimeo';
+        }
+
+        throw new \RuntimeException(\sprintf('Player type is not supported for: %s', $player));
     }
 
     public function saveAsCsv(array $videoCollection): void

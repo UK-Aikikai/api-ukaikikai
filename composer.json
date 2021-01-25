@@ -1,4 +1,8 @@
 {
+    "name": "pavlakis/api-ukaikikai",
+    "description": "UK Aikikai video conversion.",
+    "type": "library",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "UKAikikai\\Videos\\Api\\": "src/"
