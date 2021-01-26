@@ -20,6 +20,7 @@
         "ext-json": "*"
     },
     "scripts": {
-        "test": "phpunit tests/phpunit/ --colors=always"
+        "test": "phpunit tests/phpunit/ --colors=always",
+        "generate-videos": "php scripts/generate.php"
     }
 }
