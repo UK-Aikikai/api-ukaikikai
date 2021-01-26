@@ -33,14 +33,14 @@ final class VerifyAssetsTest extends TestCase
      */
     public function verify_total_rows_correspond_to_count_sum_for_each_year(): void
     {
-        $csv = array_map('str_getcsv', file($this->getFilename()));
+        $csvRows = array_map('str_getcsv', file($this->getFilename()));
         // first row will be the header. Discount from count
-        $totalVideos = \count($csv) - 1;
+        $totalVideos = \count($csvRows) - 1;
 
         $convertor = new Convertor($this->rootDir);
-        $videos = $convertor->fromCsvToArray();
+        $convertor->fromCsvToArray();
 
-        $this->assertCount($totalVideos, $videos);
+        $this->assertSame($totalVideos, $convertor->getTotalVideos());
     }
 
     private function getFilename(): string
