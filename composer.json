@@ -18,5 +18,8 @@
     },
     "require": {
         "ext-json": "*"
+    },
+    "scripts": {
+        "test": "phpunit tests/phpunit/ --colors=always"
     }
 }
