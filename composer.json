@@ -1,0 +1,25 @@
+{
+    "name": "pavlakis/api-ukaikikai",
+    "description": "UK Aikikai video conversion.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "UKAikikai\\Videos\\Api\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "UKAikikai\\Test\\Videos\\Api\\": "tests/phpunit/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
+    "require": {
+        "ext-json": "*"
+    },
+    "scripts": {
+        "test": "phpunit tests/phpunit/ --colors=always"
+    }
+}
