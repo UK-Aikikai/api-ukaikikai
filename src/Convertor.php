@@ -8,6 +8,7 @@ final class Convertor
 {
     private string $rootDir;
     private string $filename;
+    private int $videoCount = 0;
 
     public function __construct(string $rootDir, ?string $filename = null)
     {
@@ -54,6 +55,8 @@ final class Convertor
                 'player' => $videoConversion[3],
                 'player_type' => $this->getPlayerType($videoConversion[3]),
             ];
+
+            ++$this->videoCount;
         }
 
         return $videoCollection;
@@ -113,5 +116,10 @@ final class Convertor
     public function saveAsJson(array $videoCollection): void
     {
         file_put_contents($this->rootDir . '/videos.json', \json_encode($videoCollection, JSON_THROW_ON_ERROR));
+    }
+
+    public function getTotalVideos(): int
+    {
+        return $this->videoCount;
     }
 }
