@@ -21,6 +21,6 @@
     },
     "scripts": {
         "test": "phpunit tests/phpunit/ --colors=always",
-        "generate-videos": "php scripts/generate.php"
+        "generate-videos": "php ./scripts/generate.php"
     }
 }
