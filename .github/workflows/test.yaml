@@ -10,14 +10,14 @@ jobs:
         run:  composer install --prefer-dist --no-progress --no-suggest
       - name: unit tests
         run:  composer test
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: |
-          composer generate-videos
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "Convert latest video file"
-          git push
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - run: |
+#          composer generate-videos
+#          git config user.name github-actions
+#          git config user.email github-actions@github.com
+#          git add .
+#          git commit -m "Convert latest video file"
+#          git push
